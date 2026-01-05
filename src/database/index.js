@@ -1,8 +1,9 @@
-import { Sequelize } from "sequelize";
-import databaseConfig from "../config/database.js";
+import Sequelize from "sequelize";
+import databaseConfig from "../config/database.cjs";
 import User from "../app/models/User.js";
+import Products from "../app/models/Products.js";
 
-const models = [User];
+const models = [User, Products];
 class Database {
   constructor() {
     this.init();
