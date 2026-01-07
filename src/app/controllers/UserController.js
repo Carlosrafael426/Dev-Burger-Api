@@ -7,10 +7,10 @@ update -> atualiza dados
 delete -> remove dados
 
 */
-import bcrypt from "bcrypt";
-import { v4 } from "uuid";
-import * as Yup from "yup";
-import User from "../models/User.js";
+import bcrypt from 'bcrypt';
+import { v4 } from 'uuid';
+import * as Yup from 'yup';
+import User from '../models/User.js';
 
 class UserController {
   async store(request, response) {
@@ -21,11 +21,10 @@ class UserController {
       admin: Yup.boolean(),
     });
 
-
     try {
       schema.validateSync(request.body, { abortEarly: false, strict: true });
     } catch (err) {
-      return response.status(400).json({error: err.errors});
+      return response.status(400).json({ error: err.errors });
     }
 
     const { name, email, password, admin } = request.body;
@@ -36,11 +35,10 @@ class UserController {
     });
 
     if (existinUser) {
-      return response.status(400).json({ message: "Email already taken" });
+      return response.status(400).json({ message: 'Email already taken' });
     }
 
-
-    const password_hash = await bcrypt.hash(password, 10)  
+    const password_hash = await bcrypt.hash(password, 10);
 
     const user = await User.create({
       id: v4(),

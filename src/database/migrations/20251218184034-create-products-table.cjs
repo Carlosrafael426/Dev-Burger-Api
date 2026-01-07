@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -29,7 +29,8 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false,
       },
-      updated_at: {   // ✅ CORRIGIDO
+      updated_at: {
+        // ✅ CORRIGIDO
         type: Sequelize.DATE,
         allowNull: false,
       },

@@ -27,19 +27,18 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         defaultValue: false,
       },
-      created_at:{
-        type:Sequelize.DATE,
-        allowNull:false
+      created_at: {
+        type: Sequelize.DATE,
+        allowNull: false,
       },
-      updated_at:{
-        type:Sequelize.DATE,
-        allowNull:false
-      }
+      updated_at: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
     });
   },
 
   async down(queryInterface) {
     await queryInterface.dropTable('users');
-     
   },
 };
